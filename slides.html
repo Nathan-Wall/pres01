@@ -111,6 +111,13 @@
       ol.no-letter {
         list-style-type: none;
       }
+
+      ul.fix-ul {
+        list-style-type: circle;
+      }
+      ul.fix-ul li {
+        margin: 0 6px;
+      }
     </style>
     <script type="text/javascript" src="bezier.js"></script>
     <script type="text/javascript" src="custom.js"></script>
@@ -169,16 +176,86 @@
       </article>
 
       <article>
-        <h3 style="margin-bottom: 0px;">
-          Animations: Linear
+        <h3>
+          A simple sizing problem
         </h3>
-<section style="margin-top: 10px;"><pre class="active-for-beach-ball button-action" style="margin-top: 16px;">
-.ball {
-  transition: transform 2s linear;
-  transform: translate3d(500px, 0, 0);
-}
-</pre></section>
-<img class="beach-ball button-action" alt="" src="ball.jpg" />
+
+<table class="no-border"><tr>
+<td><img alt="" src="ui-03.png" /></td>
+<td class="build"><img alt="" src="ui-04.png" /></td>
+</tr></table>
+      </article>
+
+      <article>
+        <h3>
+          A simple sizing problem
+        </h3>
+
+        <p style="margin-bottom: 0px;"><img alt="" src="ui-05.png" /></p>
+
+        <ul class="fix-ul build" style="margin: 0; font-size: 90%;">
+          <li>Current position of top left corner of phone icon: <b>14 px</b></li>
+          <li>Width of orange region: <b>64 px</b></li>
+          <li>Width of red region: <b>20 px</b></li>
+          <li>Width of green region: <b>44 px</b></li>
+          <li>Midpoint of green region: <b>22 px</b></li>
+          <li>Width of phone icon: <b>16 px</b></li>
+          <li>22 px - 8 px = <b>14 px</b></li>
+        </ul>
+
+      </article>
+
+      <article>
+        <h3>
+          A simple sizing problem
+        </h3>
+
+        <p style="margin-bottom: 0px;"><img alt="" src="ui-05.png" /></p>
+
+        <ul class="fix-ul" style="margin: 0; font-size: 90%;">
+          <li>Current position of top left corner of phone icon: <b>14 px</b></li>
+          <li>Width of orange region: <b>64 px</b></li>
+          <li>Width of red region: <b>20 px</b>
+          <span class="build"><span>&rarr; <b>15 px</b></span></span></li>
+          <li>Width of green region: <b>44 px</b>
+          <span class="build"><span>&rarr; <b>49 px</b></span></span></li>
+          <li>Midpoint of green region: <b>22 px</b>
+          <span class="build"><span>&rarr; <b>24.5 px</b></span></span></li>
+          <li>Width of phone icon: <b>16 px</b>
+          <span class="build"><span>&rarr; <b>16 px</b></span></span></li>
+          <li>22 px - 8 px = <b>14 px</b>
+          <span class="build"><span>&rarr; 24.5 px - 8 px = <b>16.5 px px</b></span></span></li>
+        </ul>
+
+      </article>
+
+      <article>
+        <h3>
+          A simple sizing problem
+        </h3>
+
+        <p style="margin-bottom: 0px;"><img alt="" src="ui-05.png" /></p>
+
+        <ul class="fix-ul" style="margin: 0; font-size: 90%;">
+          <li>Current position of top left corner of phone icon: <b>14 px</b></li>
+          <li>Width of orange region: <b>64 px</b></li>
+          <li>Width of red region: <b>20 px</b>
+          <span class="build"><span>&rarr; <b>10 px</b></span></span></li>
+          <li>Width of green region: <b>44 px</b>
+          <span class="build"><span>&rarr; <b>54 px</b></span></span></li>
+          <li>Midpoint of green region: <b>22 px</b>
+          <span class="build"><span>&rarr; <b>27 px</b></span></span></li>
+          <li>Width of phone icon: <b>16 px</b>
+          <span class="build"><span>&rarr; <b>16 px</b></span></span></li>
+          <li>22 px - 8 px = <b>14 px</b>
+          <span class="build"><span>&rarr; 27 px - 8 px = <b>19 px</b></span></span></li>
+        </ul>
+
+      </article>
+
+      <article>
+        <h3>Animations</h3>
+        <p style="text-align: center;"><img style="width: 330px;" alt="" src="ui-02.png" /></p>
       </article>
 
       <article>
@@ -450,7 +527,7 @@
         </li></ol>
         </td>
         <td></td>
-        <td style="font-size: 200%; color: #a00;">j</td>
+        <td style="font-size: 200%; color: #a00;">m</td>
         </tr>
         <tr>
         <td>
@@ -485,7 +562,7 @@
           <tr>
             <td style="line-height: 0.9em; padding: 0;">&Sigma;</td>
             <td style="width: 0; display: none;"></td>
-            <td style="line-height: 0.9em; padding: 0; text-align: left;"><i>&theta;</i>( j )</td>
+            <td style="line-height: 0.9em; padding: 0; text-align: left;"><i>&theta;</i>( m )</td>
           </tr>
           <tr><td style="font-size: 50%; line-height: 0.9em; padding: 0; white-space: nowrap=;">i = 1</td></tr>
           </table>
@@ -500,7 +577,7 @@
         </li></ol>
         </td>
         <td></td>
-        <td>j</td>
+        <td>m</td>
         </tr>
         <tr>
         <td>
@@ -544,7 +621,7 @@
         </li></ol>
         </td>
         <td></td>
-        <td>j</td>
+        <td>m</td>
         </tr>
         <tr>
         <td>
