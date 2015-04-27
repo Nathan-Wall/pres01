@@ -118,6 +118,10 @@
       ul.fix-ul li {
         margin: 0 6px;
       }
+
+      .hide-canvas canvas {
+        display: none;
+      }
     </style>
     <script type="text/javascript" src="bezier.js"></script>
     <script type="text/javascript" src="custom.js"></script>
@@ -213,7 +217,6 @@
         <p style="margin-bottom: 0px;"><img alt="" src="ui-05.png" /></p>
 
         <ul class="fix-ul" style="margin: 0; font-size: 90%;">
-          <li>Current position of top left corner of phone icon: <b>14 px</b></li>
           <li>Width of orange region: <b>64 px</b></li>
           <li>Width of red region: <b>20 px</b>
           <span class="build"><span>&rarr; <b>15 px</b></span></span></li>
@@ -224,7 +227,7 @@
           <li>Width of phone icon: <b>16 px</b>
           <span class="build"><span>&rarr; <b>16 px</b></span></span></li>
           <li>22 px - 8 px = <b>14 px</b>
-          <span class="build"><span>&rarr; 24.5 px - 8 px = <b>16.5 px px</b></span></span></li>
+          <span class="build"><span>&rarr; 24.5 px - 8 px = <b>16.5 px</b></span></span></li>
         </ul>
 
       </article>
@@ -237,7 +240,6 @@
         <p style="margin-bottom: 0px;"><img alt="" src="ui-05.png" /></p>
 
         <ul class="fix-ul" style="margin: 0; font-size: 90%;">
-          <li>Current position of top left corner of phone icon: <b>14 px</b></li>
           <li>Width of orange region: <b>64 px</b></li>
           <li>Width of red region: <b>20 px</b>
           <span class="build"><span>&rarr; <b>10 px</b></span></span></li>
@@ -256,6 +258,32 @@
       <article>
         <h3>Animations</h3>
         <p style="text-align: center;"><img style="width: 330px;" alt="" src="ui-02.png" /></p>
+      </article>
+
+      <article class='hide-canvas'>
+        <h3>
+          Animations: Linear
+        </h3>
+<section><pre class="active-for-beach-ball">
+.ball {
+  transform: translate3d(500px, 0, 0);
+  transition: transform 2s <b>linear</b>;
+}
+</pre></section>
+<img class="beach-ball" alt="" src="ball.jpg" />
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Animations: Linear
+        </h3>
+<section><pre class="active-for-beach-ball">
+.ball {
+  transform: translate3d(500px, 0, 0);
+  transition: transform 2s <b>linear</b>;
+}
+</pre></section>
+<img class="beach-ball" alt="" src="ball.jpg" />
       </article>
 
       <article>
@@ -278,8 +306,8 @@
 <div style="position: relative; top: -140px;">
 <section style="display: none;"><pre class="active-for-beach-ball no-animate">
 .ball {
-  transition: transform 2s cubic-bezier(0.5, 0, 0.5, 1);
   transform: translate3d(500px, 0, 0);
+  transition: transform 2s cubic-bezier(0.5, 0, 0.5, 1);
 }
 </pre></section>
 <img style="display: none;" class="beach-ball" alt="" src="ball.jpg" />
@@ -292,10 +320,19 @@
         </h3>
 <section><pre style="font-size: 80%;">
 .ball {
+  transform: translate3d(500px, 0, 0);
   transition: transform 2s <b>cubic-bezier(0.5, 0, 0.5, 1)</b>;
-  transform: translate3d(500px, 0, 0);
 }
 </pre></section>
+        <table class="no-border" style="text-align: center;">
+          <tr>
+            <td>P<sub>0</sub> = (0, 0)</td>
+            <td style="font-weight: bold;">P<sub>1</sub> = (0.5, 0)</td>
+          </tr><tr>
+            <td style="font-weight: bold;">P<sub>2</sub> = (0.5, 1)</td>
+            <td>P<sub>3</sub> = (1, 1)</td>
+          </tr>
+        </table>
       </article>
 
       <article class='smaller'>
@@ -304,8 +341,8 @@
         </h3>
 <section><pre class="active-for-beach-ball">
 .ball {
+  transform: translate3d(500px, 0, 0);
   transition: transform 2s cubic-bezier(0.5, 0, 0.5, 1);
-  transform: translate3d(500px, 0, 0);
 }
 </pre></section>
 <img class="beach-ball" alt="" src="ball.jpg" />
@@ -317,8 +354,8 @@
         </h3>
 <section><pre class="active-for-beach-ball">
 .ball {
+  transform: translate3d(500px, 0, 0);
   transition: transform 2s cubic-bezier(0.8, 0, 0.2, 1);
-  transform: translate3d(500px, 0, 0);
 }
 </pre></section>
 <img class="beach-ball" alt="" src="ball.jpg" />
@@ -330,8 +367,8 @@
         </h3>
 <section><pre class="active-for-beach-ball">
 .ball {
+  transform: translate3d(500px, 0, 0);
   transition: transform 2s cubic-bezier(0, 0.6, 1, 0.4);
-  transform: translate3d(500px, 0, 0);
 }
 </pre></section>
 <img class="beach-ball" alt="" src="ball.jpg" />
@@ -343,8 +380,8 @@
         </h3>
 <section><pre class="active-for-beach-ball">
 .ball {
-  transition: transform 2s cubic-bezier(0.8, -2, 0.2, 3);
   transform: translate3d(500px, 0, 0);
+  transition: transform 2s cubic-bezier(0.8, -2, 0.2, 3);
 }
 </pre></section>
 <img class="beach-ball" alt="" src="ball.jpg" />
