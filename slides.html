@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Presentation</title>
+
+    <meta charset='utf-8'>
+    <script
+      src='slides.js'></script>
+    <style type="text/css">
+      table.two-uis {
+        margin-top: -45px;
+        border-collapse: separate;
+        border-spacing: 8px;
+      }
+      table.two-uis td {
+        padding: 0;
+      }
+      table.two-uis td img {
+        border: 1px solid #000;
+        width: 375px;
+      }
+      .beach-ball {
+        width: 250px;
+        margin-top: 200px;
+      }
+      .bezier-curve {
+        position: absolute;
+        left: 50%;
+        margin-left: -250px;
+        top: 80px;
+      }
+
+      table.lists {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      table.lists td,
+      table.lists th {
+        border: 0;
+        vertical-align: middle;
+      }
+      table.lists th {
+        padding-left: 22px;
+      }
+      table.lists td:nth-child(2) {
+        font-size: 300%;
+        text-align: center;
+        color: #0a0;
+      }
+      table.lists .name {
+        background: #ddd;
+        color: #000;
+        margin: 8px;
+        padding: 2px 4px;
+        border-radius: 6px;
+        width: 80%;
+      }
+      table.lists .name-container {
+        height: 1.8em;
+      }
+      table.lists td.name-container {
+        height: 280px;
+      }
+
+      .analyzing-algorithms sub {
+        font-size: 60%;
+      }
+      .analyzing-algorithms .a-sub {
+        float: right;
+        font-size: 85%;
+        color: #800;
+        padding: 0 8px 2px;
+      }
+      .analyzing-algorithms td > ol {
+        font-size: 80%;
+      }
+      .analyzing-algorithms.overview ol {
+        margin: 0;
+      }
+      .fix-sups sup {
+        position: relative;
+        top: -10px;
+      }
+
+      table.no-border {
+        border-collapse: collapse;
+      }
+      table.no-border td {
+        border: 0;
+      }
+
+      li::before {
+        content: '' !important;
+      }
+      ol ol li {
+        list-style-type: lower-alpha;
+      }
+      ol.no-letter {
+        list-style-type: none;
+      }
+    </style>
+    <script type="text/javascript" src="bezier.js"></script>
+    <script type="text/javascript" src="custom.js"></script>
+    <script type="text/javascript" src="sort.js"></script>
+    <script type="text/javascript" src="cursor.js"></script>
+    <link rel="stylesheet" type="text/css" href="cursor.css" />
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+    
+    
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-default'>
+
+      <article>
+        <h1>
+          Using Math as a
+          <br>
+          Software Engineer
+        </h1>
+        <p>
+          Nathan Wall
+          <br>
+          April 27, 2015
+        </p>
+      </article>
+
+      <article style="background-image: url(google-nyc-01.jpg); background-size: auto 100%;">
+        <h3 style="color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.8);">Life at Google</h3>
+      </article>
+
+      <article style="background-image: url(google-nyc-02.jpg); background-size: 100%;">
+        <h3 style="color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.8);">Life at Google</h3>
+      </article>
+
+      <article style="background-image: url(google-nyc-03.jpg); background-size: 100%;">
+        <h3 style="color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.8);">Life at Google</h3>
+      </article>
+
+      <article style="background-image: url(google-nyc-04.jpg); background-size: 100%;">
+        <h3 style="color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.8);">Life at Google</h3>
+      </article>
+
+      <article>
+        <table class="two-uis">
+          <tr>
+            <td><img alt="" src="ui-01.png" /></td>
+            <td><img alt="" src="ui-02.png" /></td>
+          </tr>
+        </table>
+      </article>
+
+      <article>
+        <h3 style="margin-bottom: 0px;">
+          Animations: Linear
+        </h3>
+<section style="margin-top: 10px;"><pre class="active-for-beach-ball button-action" style="margin-top: 16px;">
+.ball {
+  transition: transform 2s linear;
+  transform: translate3d(500px, 0, 0);
+}
+</pre></section>
+<img class="beach-ball button-action" alt="" src="ball.jpg" />
+      </article>
+
+      <article>
+        <h3>
+          Cubic-Bézier Curve
+        </h3>
+        <p>
+          <img alt="" src="bezier.png" style="width: 100%;" />
+        </p>
+        <div class="build">
+        <table class="no-border" style="text-align: center;">
+          <tr>
+            <td>P<sub>0</sub> = (0, 0)</td>
+            <td>P<sub>1</sub> = (0.5, 0)</td>
+          </tr><tr>
+            <td>P<sub>2</sub> = (0.5, 1)</td>
+            <td>P<sub>3</sub> = (1, 1)</td>
+          </tr>
+        </table>
+<div style="position: relative; top: -140px;">
+<section style="display: none;"><pre class="active-for-beach-ball no-animate">
+.ball {
+  transition: transform 2s cubic-bezier(0.5, 0, 0.5, 1);
+  transform: translate3d(500px, 0, 0);
+}
+</pre></section>
+<img style="display: none;" class="beach-ball" alt="" src="ball.jpg" />
+</div></div>
+      </article>
+
+      <article>
+        <h3>
+          Animations: Cubic-Bézier
+        </h3>
+<section><pre style="font-size: 80%;">
+.ball {
+  transition: transform 2s <b>cubic-bezier(0.5, 0, 0.5, 1)</b>;
+  transform: translate3d(500px, 0, 0);
+}
+</pre></section>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Animations: Cubic-Bézier
+        </h3>
+<section><pre class="active-for-beach-ball">
+.ball {
+  transition: transform 2s cubic-bezier(0.5, 0, 0.5, 1);
+  transform: translate3d(500px, 0, 0);
+}
+</pre></section>
+<img class="beach-ball" alt="" src="ball.jpg" />
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Animations: Cubic-Bézier
+        </h3>
+<section><pre class="active-for-beach-ball">
+.ball {
+  transition: transform 2s cubic-bezier(0.8, 0, 0.2, 1);
+  transform: translate3d(500px, 0, 0);
+}
+</pre></section>
+<img class="beach-ball" alt="" src="ball.jpg" />
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Animations: Cubic-Bézier
+        </h3>
+<section><pre class="active-for-beach-ball">
+.ball {
+  transition: transform 2s cubic-bezier(0, 0.6, 1, 0.4);
+  transform: translate3d(500px, 0, 0);
+}
+</pre></section>
+<img class="beach-ball" alt="" src="ball.jpg" />
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Animations: Cubic-Bézier
+        </h3>
+<section><pre class="active-for-beach-ball">
+.ball {
+  transition: transform 2s cubic-bezier(0.8, -2, 0.2, 3);
+  transform: translate3d(500px, 0, 0);
+}
+</pre></section>
+<img class="beach-ball" alt="" src="ball.jpg" />
+      </article>
+
+      <article>
+        <h3>
+          Analyzing Algorithms
+        </h3>
+        <h4>Running Time</h4>
+        <table class="fix-sups">
+        <tr>
+        <td><i>&theta;</i>( 2<sup>n</sup> )</td>
+        <td>Exponential</td>
+        <td style="color: #a40;">Terrible</td>
+        </tr>
+        <tr>
+        <td><i>&theta;</i>( n<sup>2</sup> )</td>
+        <td>Quadratic</td>
+        <td style="color: #aa0;">Bad</td>
+        </tr>
+        <tr>
+        <td><i>&theta;</i>( n log n )</td>
+        <td>Linearithmic</td>
+        <td style="color: #8a0;">OK</td>
+        </tr>
+        <tr>
+        <td><i>&theta;</i>( n )</td>
+        <td>Linear</td>
+        <td style="color: #0a0;">Good</td>
+        </tr>
+        <tr>
+        <td><i>&theta;</i>( log n )</td>
+        <td>Logarithmic</td>
+        <td style="color: #0d0;">Better</td>
+        </tr>
+        <tr>
+        <td><i>&theta;</i>( 1 )</td>
+        <td>Constant</td>
+        <td style="color: #0f0;">Best</td>
+        </tr>
+        </table>
+      </article>
+
+      <article class="analyzing-algorithms">
+        <h3>
+          Analyzing Algorithms
+        </h3>
+        <h4>Sorting</h4>
+        <table class="lists"><tr>
+        <td>
+          <div class="name">Stephanie</div>
+          <div class="name">Emily</div>
+          <div class="name">James</div>
+          <div class="name">Alice</div>
+          <div class="name">Sean</div>
+        </td>
+        <td>&rarr;</td>
+        <td>
+          <div class="name">Alice</div>
+          <div class="name">Emily</div>
+          <div class="name">James</div>
+          <div class="name">Sean</div>
+          <div class="name">Stephanie</div>
+        </td>
+        </tr></table>
+      </article>
+
+      <article class="analyzing-algorithms">
+        <h3>
+          Analyzing Algorithms
+        </h3>
+        <h4>Sorting</h4>
+        <table class="lists"><tr>
+        <td>
+          <div class="name">Stephanie</div>
+          <div class="name">Emily</div>
+          <div class="name">James</div>
+          <div class="name">Alice</div>
+          <div class="name">Sean</div>
+        </td>
+        <td>&rarr;</td>
+        <td>
+          <div class="name">Alice</div>
+          <div class="name">Emily</div>
+          <div class="name">James</div>
+          <div class="name">Sean</div>
+          <div class="name">Stephanie</div>
+        </td>
+        </tr></table>
+        <p>Input: sequence of numbers &lt;a<sub>1</sub> , a<sub>2</sub> , a<sub>3</sub> , ... , a<sub>n</sub>&gt;</p>
+        <p>Output: permutation &lt;a<sub>1</sub><i>'</i> , a<sub>2</sub><i>'</i> , a<sub>3</sub><i>'</i> , ... , a<sub>n</sub><i>'</i>&gt;</p>
+      </article>
+
+      <article class="analyzing-algorithms">
+        <h3>
+          Analyzing Algorithms
+        </h3>
+        <h4>Sorting</h4>
+        <table class="lists"><tr>
+        <td>
+          <div class="name">Stephanie<span class="a-sub">a<sub>1</sub></span></div>
+          <div class="name">Emily<span class="a-sub">a<sub>2</sub></span></div>
+          <div class="name">James<span class="a-sub">a<sub>3</sub></span></div>
+          <div class="name">Alice<span class="a-sub">a<sub>4</sub></span></div>
+          <div class="name">Sean<span class="a-sub">a<sub>5</sub></span></div>
+        </td>
+        <td>&rarr;</td>
+        <td>
+          <div class="name">Alice<span class="a-sub">a<sub>1</sub><i>'</i></span></div>
+          <div class="name">Emily<span class="a-sub">a<sub>2</sub><i>'</i></span></div>
+          <div class="name">James<span class="a-sub">a<sub>3</sub><i>'</i></span></div>
+          <div class="name">Sean<span class="a-sub">a<sub>4</sub><i>'</i></span></div>
+          <div class="name">Stephanie<span class="a-sub">a<sub>5</sub><i>'</i></span></div>
+        </td>
+        </tr></table>
+        <p>Input: sequence of numbers &lt;a<sub>1</sub> , a<sub>2</sub> , a<sub>3</sub> , ... , a<sub>n</sub>&gt;</p>
+        <p>Output: permutation &lt;a<sub>1</sub><i>'</i> , a<sub>2</sub><i>'</i> , a<sub>3</sub><i>'</i> , ... , a<sub>n</sub><i>'</i>&gt;</p>
+      </article>
+
+      <article class="analyzing-algorithms do-sort">
+        <h3>
+          Analyzing Algorithms
+        </h3>
+        <table class="lists">
+        <tr>
+        <th>Insertion Sort</th>
+        <th></th>
+        <th>List</th>
+        <th>Key</th>
+        </tr>
+        <tr>
+        <td>
+        <ol>
+        <li>In order, pull out each name into the "key" column.
+          <ol>
+          <li>For each name before the key, if it should be sorted after the key, move it down one space.</li>
+          <li>Move the key back into the remaining empty spot.</li>
+          </ol>
+        </li>
+        </ol>
+        </td>
+        <td style="width: 0;"></td>
+        <td style="width: 200px; position: relative;">
+          <div class="name-container readjust"><div class="name">Stephanie</div></div>
+          <div class="name-container readjust"><div class="name">Emily</div></div>
+          <div class="name-container readjust"><div class="name">James</div></div>
+          <div class="name-container readjust"><div class="name">Alice</div></div>
+          <div class="name-container readjust"><div class="name">Sean</div></div>
+        </td>
+        <td style="width: 200px; position: relative;" class="name-container">
+        </td>
+        </tr></table>
+      </article>
+
+      <article class="analyzing-algorithms overview">
+        <h3>
+          Analyzing Algorithms
+        </h3>
+        <h4>How much time does this take?</h4>
+        <table class="lists">
+        <tr>
+        <td style="width: 350px;">
+        <ol>
+        <li>In order, pull out each name into the "key" column.</li>
+        </ol>
+        </td>
+        <td></td>
+        <td style="font-size: 200%; color: #a00;">n</td>
+        <td rowspan="3" style="vertical-align: top;">
+
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <ol class="no-letter"><li>
+          <ol>
+          <li>For each name before the key, if it should be sorted after the key, move it down one space.</li>
+          </ol>
+        </li></ol>
+        </td>
+        <td></td>
+        <td style="font-size: 200%; color: #a00;">j</td>
+        </tr>
+        <tr>
+        <td>
+        <ol class="no-letter"><li>
+          <ol><li style="visibility: hidden; height: 0;"></li>
+          <li>Move the key back into the remaining empty spot.</li>
+          </ol>
+        </li></ol>
+        </td>
+        <td style="width: 0;"></td>
+        <td style="font-size: 200%; color: #a00;">1</td>
+        </tr></table>
+      </article>
+
+      <article class="analyzing-algorithms overview">
+        <h3>
+          Analyzing Algorithms
+        </h3>
+        <h4>How much time does this take?</h4>
+        <table class="lists">
+        <tr>
+        <td style="width: 350px;">
+        <ol>
+        <li>In order, pull out each name into the "key" column.</li>
+        </ol>
+        </td>
+        <td></td>
+        <td>n</td>
+        <td rowspan="3" style="vertical-align: top;">
+          <table style="font-size: 240%; color: #a00; text-align: center;">
+          <tr><td style="font-size: 50%; line-height: 0.9em; padding: 0;">n</td></tr>
+          <tr>
+            <td style="line-height: 0.9em; padding: 0;">&Sigma;</td>
+            <td style="width: 0; display: none;"></td>
+            <td style="line-height: 0.9em; padding: 0; text-align: left;"><i>&theta;</i>( j )</td>
+          </tr>
+          <tr><td style="font-size: 50%; line-height: 0.9em; padding: 0; white-space: nowrap=;">i = 1</td></tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <ol class="no-letter"><li>
+          <ol>
+          <li>For each name before the key, if it should be sorted after the key, move it down one space.</li>
+          </ol>
+        </li></ol>
+        </td>
+        <td></td>
+        <td>j</td>
+        </tr>
+        <tr>
+        <td>
+        <ol class="no-letter"><li>
+          <ol><li style="visibility: hidden; height: 0;"></li>
+          <li>Move the key back into the remaining empty spot.</li>
+          </ol>
+        </li></ol>
+        </td>
+        <td style="width: 0;"></td>
+        <td>1</td>
+        </tr></table>
+      </article>
+
+      <article class="analyzing-algorithms overview">
+        <h3>
+          Analyzing Algorithms
+        </h3>
+        <h4>How much time does this take?</h4>
+        <table class="lists">
+        <tr>
+        <td style="width: 350px;">
+        <ol>
+        <li>In order, pull out each name into the "key" column.</li>
+        </ol>
+        </td>
+        <td></td>
+        <td>n</td>
+        <td rowspan="3" style="vertical-align: top;">
+          <div style="font-size: 240%; color: #a00; text-align: center;">
+          <i>&theta;</i>( n<sup>2</sup> )
+          </div>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <ol class="no-letter"><li>
+          <ol>
+          <li>For each name before the key, if it should be sorted after the key, move it down one space.</li>
+          </ol>
+        </li></ol>
+        </td>
+        <td></td>
+        <td>j</td>
+        </tr>
+        <tr>
+        <td>
+        <ol class="no-letter"><li>
+          <ol><li style="visibility: hidden; height: 0;"></li>
+          <li>Move the key back into the remaining empty spot.</li>
+          </ol>
+        </li></ol>
+        </td>
+        <td style="width: 0;"></td>
+        <td>1</td>
+        </tr></table>
+      </article>
+
+      <article>
+        <h1>
+          Questions?
+        </h1>
+      </article>
+    </section>
+
+  </body>
+</html>
